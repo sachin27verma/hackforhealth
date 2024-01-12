@@ -2,18 +2,22 @@ import Navbar from "@/components/Navbar/Navbar";
 import Image from "next/image";
 import React from "react";
 import Features from "./Features";
+import Additional from "./Additional";
+import Testimonial from "./Testimonial";
+import Contactme from "./Contact";
+import Footer from "@/components/Footer/Footer";
 
 const LandingPage = () => {
   return (
     <div>
-      <div className="relative h-screen  ">
+      <div className="relative h-screen  bg-midnight  ">
         <Image
           src={"/bc-1.jpg"}
           fill
           alt="bc"
           className=" -z-40 blur-sm  object-cover shadow-none"
         />
-        <Navbar />
+        {/* <Navbar /> */}
         <div className="  flex w-10/12 h-[700px] mx-auto justify-betweem items-center   ">
           <div className=" w-1/2 flex-col gap-5 items-center  ">
             {" "}
@@ -35,13 +39,19 @@ const LandingPage = () => {
                 src={"/doctor.png"}
                 fill
                 alt="doctor"
-                className=" rotate-360"
+                className=" rotate-360 object-cover object-top "
               />
             </div>
           </div>
         </div>
       </div>
       <Features/>
+     
+      <Additional/>
+      <Testimonial/>
+      <Contactme/>
+      <hr className=" bg-white h-1 "></hr>
+      {/* <Footer/> */}
     </div>
   );
 };

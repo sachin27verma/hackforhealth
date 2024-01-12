@@ -2,8 +2,8 @@ import Image from "next/image";
 
 const Navbar = () => {
   return (
-    <div>
-      <div className=" text-white flex  h-[70px] justify-between items-center w-11/12 mx-auto ">
+    <div className=" bg-midnight">
+      <div className=" text-white flex   h-[70px] justify-between items-center w-11/12 mx-auto ">
        
           {" "}
           <div className=" h-[40px] w-[40px]  relative">

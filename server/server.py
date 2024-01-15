@@ -37,5 +37,5 @@ def predict_health():
     # print("predicted value",prediction[0])
     return jsonify({'result': prediction[0]})  # Send prediction back to frontend
 
-if __name__=='__main__':
-    app.run(debug=True,port=8080)
+# if __name__=='__main__':
+#     app.run(debug=True,port=8080)

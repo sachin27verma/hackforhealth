@@ -13,6 +13,7 @@ CORS(app)
 
 @app.route('/',methods=['GET'])
 def return_home():
+    print("server")
     return jsonify({'message':'Welcome to our API!'})
 
 @app.route('/personal', methods=['POST'])

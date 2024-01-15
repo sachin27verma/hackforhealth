@@ -30,7 +30,7 @@ const MentalHealth = () => {
         response === "Yes" ? 1 : 0
       );
       // Send a POST request to the Flask server
-      // console.log(numericResponses);
+      console.log(numericResponses);
 
       axios.defaults.baseURL = "https://";
       // axios.defaults.headers.post["Content-Type"] =
@@ -162,7 +162,7 @@ const MentalHealth = () => {
                 />
               ) : (
                 <code {...rest} className={className}>
-                  {[children]}
+                  <children/>
                 </code>
               )
             }

@@ -150,22 +150,25 @@ const MentalHealth = () => {
           <Markdown remarkPlugins={[remarkGfm]} 
           components={{
             code(props) {
-              const {betakyahua, className, node, ...rest} = props
-              const match = /language-(\w+)/.exec(className || '')
+              const { betakyahua, className, node, ...rest } = props;
+              const match = /language-(\w+)/.exec(className || '');
+            
               return match ? (
                 <SyntaxHighlighter
-                 {...rest}
+                  {...rest}
                   PreTag="p"
-                  children={String(betakyahua).replace(/\n$/, '')}
                   language={match[1]}
                   style={dark}
-                />
+                >
+                  {String(betakyahua).replace(/\n$/, '')}
+                </SyntaxHighlighter>
               ) : (
                 <code {...rest} className={className}>
                   {betakyahua}
                 </code>
-              )
+              );
             }
+            
           }}
           >{about}</Markdown>
           

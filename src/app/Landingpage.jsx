@@ -1,11 +1,11 @@
-import Navbar from "@/components/Navbar/Navbar";
+// import Navbar from "@/components/Navbar/Navbar";
 import Image from "next/image";
 import React from "react";
 import Features from "./Features";
 import Additional from "./Additional";
 import Testimonial from "./Testimonial";
 import Contactme from "./Contact";
-import Footer from "@/components/Footer/Footer";
+// import Footer from "@/components/Footer/Footer";
 
 const LandingPage = () => {
   return (

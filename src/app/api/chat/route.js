@@ -1,32 +1,28 @@
-import axios from "axios";
+import { NextResponse } from "next/server";
+import OpenAI from "openai";
+import { OpenAIStream,StreamingTextResponse } from 'ai';
 
-const chatEndpoint = "https://api.openai.com/v1/completions";
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
 
-export default async function handler(req, res) {
-  const { message } = req.body;
+export const runtime = 'edge';
 
-  try {
-    const response = await axios.post(
-      chatEndpoint,
-      {
-        prompt: `User: ${message}\nAI:`,
-        max_tokens: 50,
-        n: 1,
-        stop: null,
-        temperature: 1.0,
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${process.env.CHATGPT_API_KEY}`,
-        },
-      }
-    );
+export async function POST(req, res) {
 
-    const aiReply = response.data.choices[0].text.trim();
-    res.status(200).json(aiReply);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "An error occurred while processing the request" });
-  }
+    const { content } = await req.json();
+  const chatCompletion = await openai.chat.completions.create({
+    messages: [{ role: "user", content }],
+    model: "gpt-3.5-turbo",
+    max_tokens:100,
+    stream:true,
+  });
+
+  const stream=OpenAIStream(chatCompletion)
+  // console.log(stream);
+  return new StreamingTextResponse(stream)
+
+//   console.log(chatCompletion);
+  // return NextResponse.json({ content: chatCompletion });
+
 }

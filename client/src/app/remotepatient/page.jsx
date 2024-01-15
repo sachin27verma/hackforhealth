@@ -1,12 +1,9 @@
 import React from 'react'
 
-const remotepateient
- = () => {
+const page = () => {
   return (
-    <div>remotepateient
-        
-    </div>
+    <div className=' flex justify-center items-center'>Coming Soon....</div>
   )
 }
 
-export default remotepateient
+export default page

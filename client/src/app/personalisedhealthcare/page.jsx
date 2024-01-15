@@ -30,25 +30,25 @@ const MentalHealth = () => {
         response === "Yes" ? 1 : 0
       );
       // Send a POST request to the Flask server
-      console.log(numericResponses);
+      // console.log(numericResponses);
 
-      axios.defaults.baseURL = "http://";
+      axios.defaults.baseURL = "https://";
       axios.defaults.headers.post["Content-Type"] =
         "application/json;charset=utf-8";
       axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
 
       const response = await axios.post(
-        "http://localhost:8080/personal",
+        "https://hackforhealthserver.onrender.com/personal",
         numericResponses
       );
-      console.log("response", response);
+      // console.log("response", response);
 
-      console.log("yaha tak sahi");
-      console.log(response.data);
+      // console.log("yaha tak sahi");
+      // console.log(response.data);
 
       // const data = await response;
       // console.log(data)
-      console.log(response?.data?.result);
+      // console.log(response?.data?.result);
       setResult(response?.data?.result);
       let content = response?.data?.result;
        content ='about' + content + 'in_30words_and_a_Links_related' 
@@ -86,7 +86,7 @@ const MentalHealth = () => {
 
 
     } catch (error) {
-      console.error("Error predicting mental health:", error);
+      // console.error("Error predicting  health:", error);
     }
   };
 
